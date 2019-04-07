@@ -31,9 +31,8 @@ public class Reduce {
         List<Integer> orderArray = this.arrayList.stream().sorted().collect(Collectors.toList());
         if (this.arrayList.size() % 2 == 0) {
             return (orderArray.get(this.arrayList.size() / 2 - 1) + orderArray.get(this.arrayList.size() / 2)) / 2.0;
-        } else {
-            return orderArray.get(this.arrayList.size() / 2);
         }
+        return orderArray.get(this.arrayList.size() / 2);
     }
 
     public int getFirstEven() {
@@ -62,18 +61,16 @@ public class Reduce {
                 }
             }
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public Double getMedianInLinkList(SingleLink singleLink) {
         int arraySize = this.arrayList.size();
         if (arraySize % 2 == 0) {
             return (this.arrayList.get(arraySize / 2 - 1) + (this.arrayList.get(arraySize / 2))) / 2.0;
-        } else {
-            return new Double(this.arrayList.get(arraySize / 2));
         }
+        return new Double(this.arrayList.get(arraySize / 2));
     }
 
     public int getLastOdd() {

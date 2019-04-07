@@ -1,8 +1,5 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -28,19 +25,17 @@ public class MyMap {
     }
 
     public List<String> mapLetters() {
-        return this.array.stream().map(i -> this.transferStringToChars(i, this.letterList)).collect(Collectors.toList());
+        return this.array.stream().map(i -> transferStringToChars(i, this.letterList)).collect(Collectors.toList());
     }
 
     public static String transferStringToChars(Integer num, List<String> letterList) {
         StringBuilder sb = new StringBuilder();
         int firstCharIndex = (num - 1) / 26;
         int secondCharIndex = (num - 1) % 26;
-        if (firstCharIndex == 0) {
-            sb.append(letterList.get(secondCharIndex));
-        } else {
+        if (firstCharIndex != 0) {
             sb.append(letterList.get(firstCharIndex - 1));
-            sb.append(letterList.get(secondCharIndex));
         }
+        sb.append(letterList.get(secondCharIndex));
         return sb.toString();
     }
 
